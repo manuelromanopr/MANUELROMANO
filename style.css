@@ -939,37 +939,36 @@ body {
 
 
 
-/* Sezione principale: sfondo nero e testo bianco */
+
+
+/* Sezione principale */
 .contact-section {
   background: #000;
   color: #fff;
   padding: 40px 20px;
   box-sizing: border-box;
+  /* Sposta l'intera sezione un po' più in basso */
+  margin-top: 500px; 
 }
 
-/* Contenitore flessibile: box info a sinistra, form a destra */
+/* Contenitore flessibile: centra le colonne */
 .contact-container {
   display: flex;
-  flex-wrap: wrap;  /* Per layout responsive su schermi piccoli */
+  flex-wrap: wrap;  
   max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;        /* Spazio orizzontale/verticale tra le due colonne */
+  gap: 40px;
+  justify-content: center; /* Centra orizzontalmente le colonne */
 }
 
 /* Colonna di sinistra (info) */
 .contact-left {
-  flex: 0 0 40%;    /* Occupa il 40% della larghezza */
+  flex: 0 0 40%;
   box-sizing: border-box;
-  min-width: 300px; /* Larghezza minima su schermi stretti */
+  min-width: 300px;
+  /* Se vuoi centrare la colonna all'interno del contenitore */
+  margin: 0 auto;
 }
-
-/* Contenuto interno delle info (per eventuali ulteriori stili) */
-.info-left {
-  max-width: 400px; /* Riduce la larghezza del contenuto informativo */
-  margin: 0 auto;   /* Centra orizzontalmente in .contact-left */
-  text-align: center;
-}
-
 /* Logo */
 .info-logo {
   max-width: 100px;
@@ -1000,18 +999,7 @@ body {
   border-bottom: 1px solid transparent; /* Effetto hover */
 }
 
-/* Informativa privacy */
-.privacy {
-  margin: 20px 0;
-}
-.privacy a {
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid #fff;
-}
-.privacy a:hover {
-  border-bottom: 1px solid transparent;
-}
+
 
 /* Icone social */
 .social-icons {
@@ -1025,57 +1013,3 @@ body {
   height: 24px;
 }
 
-/* Colonna di destra (form) */
-.contact-right {
-  flex: 0 0 40%;    /* Occupa il 40% della larghezza */
-  max-width: 400px; /* Riduce la dimensione del form */
-  box-sizing: border-box;
-  min-width: 300px;
-}
-
-/* Stili del form */
-.contact-right form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Spazio verticale tra gli elementi */
-}
-
-/* Label */
-.contact-right form label {
-  font-weight: bold;
-}
-
-/* Campi di testo e textarea con sfondo azzurro */
-.contact-right form input[type="text"],
-.contact-right form input[type="email"],
-.contact-right form input[type="tel"],
-.contact-right form textarea {
-  background: #3C82F7;   /* Azzurro */
-  color: #000;           /* Testo nero per contrasto */
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-}
-
-/* Checkbox inline */
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-/* Pulsante di invio */
-.contact-right form button[type="submit"] {
-  background: #3C82F7;  /* Esempio di rosa/fucsia */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 12px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.contact-right form button[type="submit"]:hover {
-  background: #3C82F7; /* Sfumatura più chiara in hover */
-}
