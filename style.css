@@ -115,52 +115,57 @@ header {
       padding: 8px 16px;
   }
 }
+/*home*/
 /* Sezione Hero */
 .hero {
   background: #000;
   padding: 40px 20px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
 }
 
-/* Contenitore principale */
+/* Contenitore principale: layout a due colonne */
 .hero-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; /* Permette di adattarsi ai dispositivi mobili */
 }
 
-/* Colonna immagine */
+/* Colonna immagine: 40% di larghezza */
 .hero-image {
   flex: 0 0 40%;
   box-sizing: border-box;
-  margin-right: 20px;
+  margin-right: 20px; /* Spazio tra immagine e box di testo */
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 5px;
+  position: relative; /* Aggiunto per poter usare left */
+  left: -160px; 
+
+  border-radius: 5px; /* Facoltativo */
 }
 
-/* Colonna testo */
+/* Colonna testo: 60% di larghezza */
 .hero-content {
-  flex: 0 0 55%;
+  flex: 0 0 80%;
+  position: relative;
+  left:-160px;
   padding: 20px;
   box-sizing: border-box;
   color: #fff;
-  text-align: left;
+  z-index: 1; /* Assicura che il testo sia in primo piano */
 }
+
+
 
 /* Stili per titoli e paragrafi */
 .hero-content h1 {
   color: #3C82F7;
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
 }
 
@@ -176,7 +181,7 @@ header {
   margin-bottom: 20px;
 }
 
-/* Pulsante CTA */
+/* Pulsante di call to action */
 .cta {
   display: inline-block;
   background: #3C82F7;
@@ -193,16 +198,46 @@ header {
   color: #3C82F7;
 }
 
-/* Sezione Opzioni */
+/* RESET DI BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; /* Sfondo nero */
+  color: #fff;            /* Testo bianco di default */
+  font-family: 'Roboto',sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #3C82F7; /* Titolo in rosa acceso */
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto 40px auto; /* Centra e limita la larghezza */
+}
+
+/* Contenitore delle 3 opzioni (1-3) */
 .options-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 40px;              /* Spazio orizzontale e verticale fra box */
+  max-width: 1000px;      /* Larghezza massima contenitore */
+  margin: 0 auto;         /* Centra il contenitore */
+  margin-bottom: 60px;    /* Spazio sotto il blocco */
 }
 
-/* Singolo box opzione */
+/* Ogni singolo box */
 .option-box {
   display: flex;
   flex-direction: column;
@@ -213,7 +248,7 @@ header {
 .option-box .number {
   font-size: 3rem;
   font-weight: bold;
-  color: #3C82F7;
+  color: #3C82F7; /* Numero in rosa */
   margin-bottom: 10px;
 }
 
@@ -222,33 +257,14 @@ header {
   color: #fff;
 }
 
-/* Testo finale */
+/* Testo finale (call to action) */
 .cta-text {
   font-size: 1.2rem;
-  color: #3C82F7;
+  color: #3C82F7; /* Testo finale in rosa */
 }
 
-/* Adattamenti responsive */
+/* Adattamenti responsive (facoltativi) */
 @media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-image {
-    flex: 0 0 100%;
-    margin-right: 0;
-  }
-
-  .hero-content {
-    flex: 0 0 100%;
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
   .options-container {
     grid-template-columns: 1fr 1fr; /* Due colonne su tablet */
   }
@@ -256,23 +272,9 @@ header {
 
 @media (max-width: 480px) {
   .options-container {
-    grid-template-columns: 1fr; /* Una colonna su mobile */
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .cta {
-    padding: 10px 20px;
-    font-size: 1rem;
+    grid-template-columns: 1fr;     /* Una colonna su mobile */
   }
 }
-
 /* Animazione fade-in per la sezione Hero */
 @keyframes fadeIn {
   from {
@@ -314,6 +316,7 @@ header {
 .cta:hover {
   transform: scale(1.05);
 }
+
 /*chi sono*/
 
 
@@ -1058,4 +1061,3 @@ body {
   width: 24px;
   height: 24px;
 }
-
